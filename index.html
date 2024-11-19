@@ -3,14 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>生日祝福</title>
+    <title>生日快乐</title>
     <style>
         body {
-            background-color: #8cf099;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            color: #4b0082;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0e68c;
+            margin: 0;
         }
+        .cake {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            background: linear-gradient(to bottom, #ffcc00, #ff9966);
+            border-radius: 10px 10px 0 0;
+            animation: bounce 1s infinite alternate;
+        }
+        .candle {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 80px;
+            background: #ff4500;
+            border-radius: 5px;
+        }
+        .flame {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+            background: #ffcc00;
+            border-radius: 50%;
+            animation: flame 1s infinite alternate;
+        }
+        .layer {
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(to right, #ff6699, #ffcc00);
+            border-radius: 5px;
+        }
+        .layer:nth-child(1) { top: 30px; }
+        .layer:nth-child(2) { top: 70px; }
+        .layer:nth-child(3) { top: 110px;}
+
         h1 {
             font-size: 3em;
             margin-top: 20px;
@@ -20,7 +62,7 @@
             margin: 20px 0;
         }
         .anime-image {
-            width: 800px;
+            width: 300px;
             height: auto;
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -34,38 +76,38 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin: 10px;
         }
         .button:hover {
             background-color: #ff1493;
         }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        @keyframes flame {
+            0% { height: 10px; }
+            100% { height: 15px; }
+        }
     </style>
 </head>
 <body>
+    <h1>生日快乐！</h1>
 
-    <img src="./image.png" alt="生日动漫" class="anime-image">
-    <p>愿你勇往直前，披荆斩棘</p>
-    <p>祝你在新的一岁里，梦想成真，成功上岸！</p>
+    <div class="cake">
+        <div class="candle">
+            <div class="flame"></div>
+        </div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+    </div>
 
-    <audio autoplay loop id="vd">
-        <source src="./music.mp3" type="audio/mpeg">
-        您的浏览器不支持音频播放。
-    </audio>
-    <script type="text/javascript">
-        window.onload = function(){
-                 setInterval("toggleSound()",10);
-            }
+    <p>愿你的每一天都充满快乐与惊喜！</p>
+    <p>祝你在新的一岁里，梦想成真，幸福常伴！</p>
     
-        function toggleSound() {
-                    var music = document.getElementById("vd");//获取ID  
-                        
-                    if (music.paused) { //判读是否播放  
-                        music.paused=false;
-                        music.play(); //没有就播放 
-                    }    
-            }
-    </script>
-    <button class="button" onclick="alert('原本想找一个关公单刀赴会的图片，但想到性别不符，历史上没有女关公，就利用AI工具创作了一个女英雄骑马在草原上驰骋的图片，虽然图示虚拟的，意境也没有很好表达，但希望你能像关公一样有勇气、胆识与智慧去“单刀赴会”，冲破困境！！！（背景音乐有时候加载比较慢，需要等一会儿，调试了好久，只能这样了）')">彩蛋</button>
-    
-
+    <button class="button" onclick="alert('祝你生日快乐！')">发送祝福</button>
+    <button class="button" onclick="window.location.href='./Untitled-1.html'">点击吹灭蜡烛许愿</button>
 </body>
 </html>
